@@ -1,0 +1,3 @@
+Premain-Class: edu.tamu.cse.aser.tsa.profile.ProfileInstrumentor
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
