@@ -7,7 +7,8 @@ The easiest way to use the code is to import the project into Eclipse and run ev
 * Static TSA:
 `java -jar tsa.jar Example`
 
-TSA also supports user-specified entry method, which can be configured in `tsa.conf`
+TSA also supports user-specified entry method, which can be configured in `tsa.conf`: `tsa.entry=test`. `test` is the entry method name. For example, try
+
 `java -jar tsa.jar SharingExample2`
 
 
