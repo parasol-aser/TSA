@@ -72,6 +72,7 @@ public class Config {
 
     public String logClass;// = "edu/tamu/cse/aser/profile/ProfileRunTime";
 
+    public String entryMethod;
     public Config() {
     	Properties properties = new Properties();
         logClass = properties.getProperty("tsa.logClass", "edu.tamu.cse.aser.tsa.profile.ProfileRuntime").replace(
@@ -95,6 +96,7 @@ public class Config {
                 includeList = null;
             }
 
+            entryMethod = properties.getProperty("tsa.entry", null);
 
         } catch (Exception ex) {
             ex.printStackTrace();

@@ -551,7 +551,7 @@ private void runStaticTSA() {
 		   threadList = new ArrayList<AbstractRuntimeThreadX>();
 
 
-			SootMethod mainMethod = Util.getApplicationMainMethod();
+			SootMethod mainMethod = Util.getApplicationEntryMethod();
 			ArrayList mainRunMethods = new ArrayList();
 			mainRunMethods.add(mainMethod);
 			// do same for main method

@@ -95,8 +95,12 @@ public class Util {
 				(sm.getDeclaringClass().isApplicationClass()&&!skipPackage(sm.getDeclaringClass().getPackageName())||sm.isPublic()&&isThreadClass(sm.getDeclaringClass()));
 	}
 	
-	public static SootMethod getApplicationMainMethod()
+	private static SootMethod entryMethod;
+	public static SootMethod getApplicationEntryMethod()
 	{
+		if(entryMethod!=null)
+			return entryMethod;
+		
 		return Scene.v().getMainClass().getMethod("void main(java.lang.String[])");
 
 	}
@@ -124,4 +128,7 @@ public class Util {
 		  else
 			  return ((LineNumberTag)tag).getLineNumber();
 	  }
+	public static void setEntryMethod(SootMethod m) {
+		entryMethod = m;
+	}
 }

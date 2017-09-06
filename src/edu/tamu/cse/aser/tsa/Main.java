@@ -8,9 +8,11 @@ import soot.Transform;
 import soot.options.Options;
 import soot.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,6 +22,7 @@ import java.io.InputStreamReader;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 
+import edu.tamu.cse.aser.tsa.profile.Config;
 import edu.tamu.cse.aser.tsa.thread.Util;
 import soot.jimple.IdentityStmt;
 import soot.jimple.spark.SparkTransformer;
@@ -65,7 +68,23 @@ public class Main{
       PackManager.v().getPack("wjtp").add(new Transform("wjtp.ThreadSharing", sharingAnalyzer));
 
       SootClass appclass = Scene.v().loadClassAndSupport(mainclass);
+      
+      try{
       Scene.v().setMainClass(appclass);
+      }catch(Exception e)
+      {
+    	  //if a main method is not available in the mainClass
+    	  //then use the one specified in tsa.entry
+    	  if(Config.instance.entryMethod!=null)
+    	  {
+    		  SootMethod entryMethod = appclass.getMethodByName(Config.instance.entryMethod);
+    		  List entryPoints = new ArrayList();
+    		  entryPoints.add(entryMethod);
+    		  Scene.v().setEntryPoints(entryPoints);
+    		  
+    		  Util.setEntryMethod(entryMethod);
+    	  }
+      }
       
       Scene.v().loadNecessaryClasses();
       float t = ((System.currentTimeMillis() - time)/ 1000f);
