@@ -21,4 +21,4 @@ TSA also supports user-specified entry method, which can be configured in `tsa.c
 [ASM](http://asm.ow2.org/) -- A Java bytecode manipulation and analysis framework
 
 # Questions
-Please send to jeff@cse.tamu.edu for any TSA related questions.
+Please contact jeff@cse.tamu.edu for any TSA related questions.
