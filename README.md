@@ -1,7 +1,8 @@
 # TSA: Thread Sharing Analysis
-This project includes static and dynamic sharing analysis libraries for finding thread shared data access locations in multithreaded Java programs.
+TSA is a tool for automatically finding thread shared data access locations in multithreaded Java programs. This project includes both static and dynamic sharing analysis libraries. The easiest way to use the code is to import the project into Eclipse and run everything inside the IDE.
 
-The easiest way to use the code is to import the project into Eclipse and run everything inside the IDE.
+If you find TSA useful, please cite our ICSE'16 paper "**Scalable Thread Sharing Analysis**" authored by Jeff Huang.
+
 
 # Command line usage
 * Static TSA:
